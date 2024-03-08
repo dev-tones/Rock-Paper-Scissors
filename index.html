@@ -16,13 +16,15 @@
       let computerChoice = Math.floor(Math.random() * computerMaxChoice);
       return computerChoice;
     }
-
-    let play = prompt("Please make a selection, Rock, Paper, Scissors: ");
-    play = play.toLowerCase();
-
-    computerPlay = getComputerFunction(computerMaxChoice);
+    let play = "";
+    let computerPlay = 0;
 
     let playRound = function(play, computerPlay){
+
+      play = prompt("Please make a selection, Rock, Paper, Scissors: ");
+      play = play.toLowerCase();
+      computerPlay = getComputerFunction(computerMaxChoice);
+
       if(play === "rock" && computerPlay === 0){
         console.log("It is a tie! You both chose Rock!");
       }else if(play === "rock" && computerPlay === 1){
@@ -45,7 +47,18 @@
         alert("Please make a valid choice: ");
       }
     }
-    console.log(playRound(play, computerPlay));
+
+    let playGame = function(){
+      const five = 5;
+      let i = 0;
+      while(i < five){
+        console.log(playRound(play, computerPlay));
+        i++;
+      }
+    }
+    
+    playGame();
+
   </script>
   
 </body>
