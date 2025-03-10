@@ -1,65 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    .large-button {
+        font-family: Arial, sans-serif;
+        font-size: 1.3em;
+        color: #fff;
+        border: 1px solid #004487;
+        background-image: -webkit-gradient(linear, top, bottom, from(#5288bd), to(#2f659a));
+        background-image: -webkit-linear-gradient(top, #5288bd, #2f659a);
+        box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.4), inset 0px 0px 0px 1px rgba      (255, 255, 255, 0.2), 0px 1px 0px rgba(255, 255, 255, .7);
+        text-shadow: 0px -1px 0px black;
+        cursor: pointer;
+    }
+    .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+        }
+</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
 <body>
-  <script>
-    let rock = 0;
-    let paper = 1;
-    let scissors = 2;
-    const computerMaxChoice = 3;
-
-    let getComputerFunction = function(computerMaxChoice){
-      let computerChoice = Math.floor(Math.random() * computerMaxChoice);
-      return computerChoice;
-    }
-    let play = "";
-    let computerPlay = 0;
-
-    let playRound = function(play, computerPlay){
-
-      play = prompt("Please make a selection, Rock, Paper, Scissors: ");
-      play = play.toLowerCase();
-      computerPlay = getComputerFunction(computerMaxChoice);
-
-      if(play === "rock" && computerPlay === 0){
-        console.log("It is a tie! You both chose Rock!");
-      }else if(play === "rock" && computerPlay === 1){
-        console.log("You lose, Paper beats Rock!");
-      }else if(play === "rock" && computerPlay === 2){
-        console.log("You Win! Rock beats Scissors!");
-      }else if(play === "paper" && computerPlay === 1){
-        console.log("It is a tie! You both chose Paper!");
-      }else if(play === "paper" && computerPlay === 2){
-        console.log("You lose, Scissors beats Paper!");
-      }else if(play === "paper" && computerPlay === 0){
-        console.log("You win! Paper beats Rock!");
-      }else if(play === "scissors" && computerPlay === 2){
-        console.log("It is a tie! You both chose Scissors!");
-      }else if(play === "scissors" && computerPlay === 1){
-        console.log("You Win! Scissors beats Paper");
-      }else if(play === "scissors" && computerPlay === 0){
-        console.log("You lose, Rock beats Scissors");
-      }else{
-        alert("Please make a valid choice: ");
-      }
-    }
-
-    let playGame = function(){
-      const five = 5;
-      let i = 0;
-      while(i < five){
-        console.log(playRound(play, computerPlay));
-        i++;
-      }
-    }
-    
-    playGame();
-
-  </script>
+  <div class="container">
+    <h1 id="gameTitle">
+      "Paper Rock Scissor"
+    </h1>
+    <button id="playButton" class="large-button" type="button" align="center" onclick="playGame()">PLAY</button>
+    <div id="gameButtons" style="display:none;">
+      <button id="rockSelection" class="large-button">ROCK</button>
+      <button id="paperSelection" class="large-button">PAPER</button>
+      <button id="scissorSelection" class="large-button">SCISSORS</button>
+    </div>
+  </div>
+  <script src="rps.js"></script>
+  
   
 </body>
 </html>
