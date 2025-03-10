@@ -2,6 +2,15 @@ let rock = 0;
 let paper = 1;
 let scissors = 2;
 const computerMaxChoice = 3;
+let myScore = 0;
+let computerScore = 0;
+let myScoreEle = document.getElementById("myScore");
+let computerScoreEle = document.getElementById("computerScore");
+
+function updateScore(){
+  myScoreEle.textContent="Your Score: " + myScore;
+  computerScoreEle.textContent="Computer Score: " + computerScore;
+}
 
 let getComputerFunction = function(computerMaxChoice){
   let computerChoice = Math.floor(Math.random() * computerMaxChoice);
@@ -26,18 +35,18 @@ let playRock = function(){
   banner.style.display = "block";
   rePlay.style.display = "block";
   if(play === "rock" && computerPlay === 0){  
-    console.log("It is a tie! You both chose Rock!");
     banner.style.backgroundColor = "lightblue";
     banner.innerText = "You have tied!"; 
   }else if(play === "rock" && computerPlay === 1){
-    console.log("You lose, Paper beats Rock!");
     banner.style.backgroundColor="red";
     banner.innerText = "You have lost!";
+    computerScore++;
   }else if(play === "rock" && computerPlay === 2){
-    console.log("You Win! Rock beats Scissors!");
     banner.style.backgroundColor = "green";
     banner.innerText = "You Won!!!";
+    myScore++;
   }
+  updateScore();
 }
   let playPaper = function(){
     let play = "paper";
@@ -49,18 +58,18 @@ let playRock = function(){
     rePlay.style.display = "block";
     document.getElementById("quitGame").style.display="block";
     if(play === "paper" && computerPlay === 1){  
-      console.log("It is a tie! You both chose Paper!");
       banner.style.backgroundColor = "lightblue";
       banner.innerText = "You have tied!"; 
     }else if(play === "paper" && computerPlay === 2){
-      console.log("You lose, Scissor beats Paper!");
       banner.style.backgroundColor="red";
       banner.innerText = "You have lost!";
+      computerScore++;
     }else if(play === "paper" && computerPlay === 0){
-      console.log("You Win! Paper beats Rock!");
       banner.style.backgroundColor = "green";
       banner.innerText = "You Won!!!";
+      myScore++;
     }
+    updateScore();
   }
     let playScissors = function(){
       let play = "scissors";
@@ -77,8 +86,11 @@ let playRock = function(){
       }else if(play === "scissors" && computerPlay === 0){
         banner.style.backgroundColor="red";
         banner.innerText = "You have lost!";
+        computerScore++;
       }else if(play === "scissors" && computerPlay === 1){
         banner.style.backgroundColor = "green";
         banner.innerText = "You Won!!!";
+        myScore++;
       }
+      updateScore();
 }
