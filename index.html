@@ -21,6 +21,17 @@
             height: 100%;
             text-align: center;
         }
+                /* Style for the banner */
+        #banner {
+            display: none;          /* Initially hidden */
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border: 1px solid #f5c6cb;
+            margin-top: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
 </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,11 +43,18 @@
       "Paper Rock Scissor"
     </h1>
     <button id="playButton" class="large-button" type="button" align="center" onclick="playGame()">PLAY</button>
-    <div id="gameButtons" style="display:none;">
-      <button id="rockSelection" class="large-button">ROCK</button>
-      <button id="paperSelection" class="large-button">PAPER</button>
-      <button id="scissorSelection" class="large-button">SCISSORS</button>
+    <div id="gameButtons" style="display:none">
+      <button id="rockSelection" class="large-button" onclick="playRock()">ROCK</button>
+      <button id="paperSelection" class="large-button" onclick="playPaper()">PAPER</button>
+      <button id="scissorSelection" class="large-button" onclick="playScissors()">SCISSORS</button>
     </div>
+  </div>
+  <div id="banner"></div>
+  <div id="replayButton" align="center" style="display:none">
+    <button id="rePlay" class="large-button" type="button" align="center" onclick="playGame()">Click to Play Again</button>
+  </div>
+  <div id="quitGame" align="center" style="display:none">
+    <button id="exitWindow" class="large-button" onclick="window.close()">EXIT GAME</button>
   </div>
   <script src="rps.js"></script>
   
